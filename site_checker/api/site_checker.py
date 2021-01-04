@@ -17,8 +17,6 @@ url_checker: AbstractUrlChecker = VirusTotalChecker(api_key=api_key)
 def site_checker(url) -> dict:
     data = storage.get(url=url)
     if data:
-        # we are doing this to keep data fresh
-        storage.set(url=url, data=data)
         return data
 
     # TODO: @amihay use serializer instead of asdict
