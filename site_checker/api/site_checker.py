@@ -16,7 +16,7 @@ url_checker: AbstractUrlChecker = VirusTotalChecker(api_key=api_key)
 
 def site_checker(url) -> dict:
     data = storage.get(url=url)
-    if data:
+    if data is not None:
         return data
 
     # TODO: @amihay use serializer instead of asdict
